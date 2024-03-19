@@ -28,6 +28,12 @@ func main() {
 	var inflationInPeriod = investmentAmount * math.Pow(inflationRateMonthlyDecimal, months)
 	var futureRealValue = futureValue - inflationInPeriod
 
-	fmt.Println("Final amount after", months, "months is", futureValue)
-	fmt.Println("Final real amount after", months, "months is", futureRealValue)
+	// fmt.Println("Final amount after", months, "months is", futureValue)
+	// fmt.Println("Final real amount after", months, "months is", futureRealValue)
+
+	// tip: fmt.Sprintf does not print to console, it returns a string
+	fmt.Printf("Final amount after %.0f months is %.2f\n", months, futureValue)
+	// fmt.Printf(`Final amount after %.0f months is %.2f
+	//`, months, futureValue)
+	fmt.Printf("Final real amount after %.0f months is %.2f\n", months, futureRealValue)
 }
