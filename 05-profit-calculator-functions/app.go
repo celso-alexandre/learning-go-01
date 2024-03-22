@@ -14,7 +14,7 @@ func main() {
 	outputText("Tax Rate: ")
 	fmt.Scan(&taxRate)
 
-	var profit = revenue - expenses
+	var profit = calculateProfit(revenue, expenses)
 	// var tax = profit * (taxRate / 100)
 	// var profitAfterTax = profit - tax
 	var profitAfterTax = profit * (1 - (taxRate / 100))
@@ -26,4 +26,10 @@ func main() {
 
 func outputText(text string) {
 	fmt.Println(text)
+}
+
+func calculateProfit(revenue float64, expenses float64) (profit float64) {
+	profit = revenue - expenses
+	return profit
+	// return
 }
