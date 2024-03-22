@@ -13,7 +13,7 @@ func main() {
 		fmt.Println("3. Check Balance ( ͡~ ͜ʖ ͡°)")
 		fmt.Println("4. Exit (╯ ͠° ͟ʖ ͡°)╯┻━┻")
 
-		var choice int
+		var choice uint8
 		fmt.Print("Enter your choice: ")
 		fmt.Scan(&choice)
 
@@ -22,12 +22,20 @@ func main() {
 			fmt.Print("Enter the amount to deposit: ")
 			var deposit float64
 			fmt.Scan(&deposit)
+			if deposit < 0 {
+				fmt.Println("Invalid amount!")
+				continue
+			}
 			balance += deposit
 			fmt.Printf("Deposited %.2f. Current balance: %.2f\n", deposit, balance)
 		case 2:
 			fmt.Print("Enter the amount to withdraw: ")
 			var withdraw float64
 			fmt.Scan(&withdraw)
+			if withdraw <= 0 {
+				fmt.Println("Invalid amount!")
+				continue
+			}
 			if withdraw > balance {
 				fmt.Println("Insufficient balance!")
 			} else {
