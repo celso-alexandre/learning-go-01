@@ -2,30 +2,24 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/celso-alexandre/learning-go-01/06-bank-multiple-files/fileOperations"
 )
 
-func main() {
-	balance, err := readBalanceFromFile()
-	fmt.Printf("Initial balance: %.2f\n", balance)
+const balanceFilename = "balance"
 
+func main() {
+	balance, err := fileOperations.ReadFloatFromFile(balanceFilename)
 	if err != nil {
-		writeBalanceToFile(balance)
+		fileOperations.WriteFloatToFile(balanceFilename, balance)
 		fmt.Println(err, ". Balance file created")
 		// panic("Error reading balance file.")
 	}
 
-	for {
-		fmt.Println()
-		fmt.Println("Welcome to the Bank!")
-		fmt.Println("What do you want, huh?")
-		fmt.Println("1. Deposit ( ͡° ͜ʖ ͡°)")
-		fmt.Println("2. Withdraw ( ಠ ͜ʖಠ)")
-		fmt.Println("3. Check Balance ( ͡~ ͜ʖ ͡°)")
-		fmt.Println("4. Exit (╯ ͠° ͟ʖ ͡°)╯┻━┻")
+	fmt.Printf("Initial balance: %.2f\n", balance)
 
-		var choice uint8
-		fmt.Print("Enter your choice: ")
-		fmt.Scan(&choice)
+	for {
+		choice := displayAndReadChoice()
 
 		switch choice {
 		case 1:
@@ -59,6 +53,6 @@ func main() {
 			return
 		}
 
-		writeBalanceToFile(balance)
+		fileOperations.WriteFloatToFile(balanceFilename, balance)
 	}
 }
