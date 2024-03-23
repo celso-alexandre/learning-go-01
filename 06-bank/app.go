@@ -1,9 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
+
+func writeBalanceToFile(balance float64) {
+	balanceText := fmt.Sprintf("%.2f", balance)
+	os.WriteFile("balance", []byte(balanceText), 0644)
+}
+
+func readBalanceFromFile() float64 {
+	balanceText, err := os.ReadFile("balance")
+	if err != nil {
+		return 0
+	}
+	var balance float64
+	fmt.Sscan(string(balanceText), &balance)
+	return balance
+}
 
 func main() {
-	var balance float64
+	balance := readBalanceFromFile()
+	fmt.Printf("Initial balance: %.2f\n", balance)
+
 	for {
 		fmt.Println()
 		fmt.Println("Welcome to the Bank!")
@@ -48,5 +68,7 @@ func main() {
 			fmt.Println("\nGoodbye! ( ͡~ ͜ʖ ͡°)")
 			return
 		}
+
+		writeBalanceToFile(balance)
 	}
 }
