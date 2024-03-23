@@ -5,13 +5,15 @@ import (
 	"os"
 )
 
+const balanceFile = "balance"
+
 func writeBalanceToFile(balance float64) {
 	balanceText := fmt.Sprint(balance)
-	os.WriteFile("balance", []byte(balanceText), 0644)
+	os.WriteFile(balanceFile, []byte(balanceText), 0644)
 }
 
 func readBalanceFromFile() float64 {
-	balanceText, err := os.ReadFile("balance")
+	balanceText, err := os.ReadFile(balanceFile)
 	if err != nil {
 		return 0
 	}
