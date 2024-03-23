@@ -12,7 +12,7 @@ type user struct {
 	createdAt time.Time
 }
 
-func (u user) printUserData() {
+func (u *user) printUserData() {
 	fmt.Println()
 	fmt.Println("First name:", u.firstName)
 	fmt.Println("Last name:", u.lastName)
