@@ -33,6 +33,7 @@ func main() {
 	if err != nil {
 		writeBalanceToFile(balance)
 		fmt.Println(err, "Balance file created.")
+		// panic("Error reading balance file.")
 	}
 
 	for {
