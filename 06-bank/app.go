@@ -16,12 +16,12 @@ func writeBalanceToFile(balance float64) {
 func readBalanceFromFile() (float64, error) {
 	balanceText, err := os.ReadFile(balanceFile)
 	if err != nil {
-		return 0, errors.New("balance file not found.")
+		return 0, errors.New("balance file not found")
 	}
 	var balance float64
 	_, parsingError := fmt.Sscan(string(balanceText), &balance)
 	if parsingError != nil {
-		return 0, errors.New("balance file is invalid.")
+		return 0, errors.New("balance file is invalid")
 	}
 	return balance, nil
 }
@@ -32,7 +32,7 @@ func main() {
 
 	if err != nil {
 		writeBalanceToFile(balance)
-		fmt.Println(err, "Balance file created.")
+		fmt.Println(err, ". Balance file created")
 		// panic("Error reading balance file.")
 	}
 
