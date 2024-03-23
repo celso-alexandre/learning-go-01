@@ -6,7 +6,7 @@ import (
 )
 
 func writeBalanceToFile(balance float64) {
-	balanceText := fmt.Sprintf("%.2f", balance)
+	balanceText := fmt.Sprint(balance)
 	os.WriteFile("balance", []byte(balanceText), 0644)
 }
 
