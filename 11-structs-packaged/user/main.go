@@ -34,8 +34,8 @@ type Admin struct {
 
 func (a *Admin) PrintData() {
 	fmt.Println()
-	a.User.PrintData()
 	fmt.Println("Email:", a.email)
+	a.User.PrintData()
 }
 
 func New(firstName, lastName, birthDate string) (*User, error) {
