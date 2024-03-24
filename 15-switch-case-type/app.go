@@ -4,8 +4,22 @@ import "fmt"
 
 // func printSomething(value any) {
 func printSomething(value interface{}) {
-	typeof, ok := value.(int)
-	fmt.Println(typeof, ok)
+	intVal, ok := value.(int)
+	fmt.Println(intVal, ok)
+
+	if ok {
+		fmt.Println("Value is an int", intVal)
+		return
+	}
+
+	floatVal, ok := value.(float64)
+	fmt.Println(floatVal, ok)
+
+	if ok {
+		fmt.Println("Value is a float", floatVal)
+		return
+	}
+
 	// switch value.(type) {
 	// case int:
 	// 	fmt.Printf("%v is an int\n", value)
