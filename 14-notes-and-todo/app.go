@@ -10,6 +10,10 @@ import (
 	"github.com/celso-alexandre/learning-go-01/14-notes-and-todo/todo"
 )
 
+type saver interface {
+	Save() error
+}
+
 func main() {
 	title, content := getNotesData()
 	newNote, err := note.New(title, content)
@@ -18,7 +22,8 @@ func main() {
 		return
 	}
 	newNote.Print()
-	err = newNote.Save()
+	err = saveToFile(newNote)
+	// err = newNote.Save()
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -31,7 +36,8 @@ func main() {
 		return
 	}
 	newTodo.Print()
-	err = newTodo.Save()
+	err = saveToFile(newTodo)
+	// err = newTodo.Save()
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -58,4 +64,13 @@ func getNotesData() (string, string) {
 	title := getUserInput("Enter title: ")
 	content := getUserInput("Enter content: ")
 	return title, content
+}
+
+func saveToFile(s saver) error {
+	err := s.Save()
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
