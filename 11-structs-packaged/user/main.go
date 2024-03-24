@@ -13,7 +13,7 @@ type user struct {
 	createdAt time.Time
 }
 
-func (u *user) PrintUserData() {
+func (u *user) PrintData() {
 	fmt.Println()
 	fmt.Println("First name:", u.firstName)
 	fmt.Println("Last name:", u.lastName)
@@ -21,12 +21,12 @@ func (u *user) PrintUserData() {
 	fmt.Println("Created at:", u.createdAt)
 }
 
-func (u *user) ClearUserName() {
+func (u *user) Clear() {
 	u.firstName = ""
 	u.lastName = ""
 }
 
-func NewUser(firstName, lastName, birthDate string) (*user, error) {
+func New(firstName, lastName, birthDate string) (*user, error) {
 	if firstName == "" || lastName == "" || birthDate == "" {
 		return nil, errors.New("first name, last name, and birth date are required")
 	}

@@ -11,7 +11,7 @@ func main() {
 	lastName := getUserData("Enter your last name: ")
 	birthDate := getUserData("Enter your birth date (MM/DD/YYYY): ")
 
-	appUser, err := user.NewUser(
+	appUser, err := user.New(
 		firstName,
 		lastName,
 		birthDate,
@@ -20,9 +20,9 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	appUser.PrintUserData()
-	appUser.ClearUserName()
-	appUser.PrintUserData()
+	appUser.PrintData()
+	appUser.Clear()
+	appUser.PrintData()
 }
 
 func getUserData(promptText string) string {
