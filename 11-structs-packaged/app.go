@@ -36,6 +36,8 @@ func main() {
 		return
 	}
 	appAdmin.PrintData()
+	appAdmin.Clear()
+	appAdmin.PrintData()
 }
 
 func getUserData(promptText string) string {
