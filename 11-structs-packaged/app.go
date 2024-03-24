@@ -23,6 +23,19 @@ func main() {
 	appUser.PrintData()
 	appUser.Clear()
 	appUser.PrintData()
+
+	appAdmin, err := user.NewAdmin(
+		firstName,
+		lastName,
+		birthDate,
+		getUserData("Enter your email: "),
+		getUserData("Enter your password: "),
+	)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	appAdmin.PrintData()
 }
 
 func getUserData(promptText string) string {
