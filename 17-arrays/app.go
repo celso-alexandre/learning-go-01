@@ -16,4 +16,10 @@ func main() {
 
 	fmt.Println(len(featuredPrices)) // 2
 	fmt.Println(cap(featuredPrices)) // 3
+
+	// Append
+	// prices = append(prices, 5.99) // NO! Append only works with slices
+	pricesSlice := []float64{1, 2, 3}
+	pricesSlice = append(pricesSlice, 4, 5, 6) // append creates a new slice without mutating the original one
+	fmt.Println(pricesSlice)                   // [1 2 3 4 5 6]
 }
