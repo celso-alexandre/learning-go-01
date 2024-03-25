@@ -22,4 +22,8 @@ func main() {
 	pricesSlice := []float64{1, 2, 3}
 	pricesSlice = append(pricesSlice, 4, 5, 6) // append creates a new slice without mutating the original one
 	fmt.Println(pricesSlice)                   // [1 2 3 4 5 6]
+
+	morePrices := []float64{7, 8, 9}
+	pricesSlice = append(pricesSlice, morePrices...)
+	fmt.Println(pricesSlice) // [1 2 3 4 5 6 7 8 9]
 }
