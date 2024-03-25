@@ -13,9 +13,18 @@ func main() {
 	names[1] = "alexandre"
 	fmt.Println(names)
 
+	// for range names {
+	for _, name := range names {
+		fmt.Println("Hello " + name)
+	}
+
 	// courseRatings := map[string]float64{}
 	courseRatings := make(floatMap, 2)
 	courseRatings["go"] = 5
 	courseRatings["react"] = 4.5
 	fmt.Println(courseRatings)
+
+	for course, rating := range courseRatings {
+		fmt.Println("Course: " + course + ". Stars:" + fmt.Sprintf("%.2f", rating))
+	}
 }
