@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+type floatMap = map[string]float64
+
 func main() {
 	// make pre-allocates the memory for a given array length. It is a optimization technique.
 	names := make([]string, 2)
@@ -12,7 +14,7 @@ func main() {
 	fmt.Println(names)
 
 	// courseRatings := map[string]float64{}
-	courseRatings := make(map[string]float64, 2)
+	courseRatings := make(floatMap, 2)
 	courseRatings["go"] = 5
 	courseRatings["react"] = 4.5
 	fmt.Println(courseRatings)
