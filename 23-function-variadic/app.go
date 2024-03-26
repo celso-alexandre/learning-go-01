@@ -8,10 +8,10 @@ func main() {
 	println(sum())              // 0
 }
 
-func sum(nums ...int) int {
+func sum(numbers ...int) int {
 	total := 0
-	for _, num := range nums {
-		total += num
+	for _, number := range numbers {
+		total += number
 	}
 	return total
 }
