@@ -16,7 +16,7 @@ func main() {
 	fmt.Println(numbers)
 }
 
-// Closure - A function that builds another one
+// Closure - A function that builds another one (a function-factory)
 func createTransformerFn(multiplier int) transformFn {
 	return func(number int) int {
 		return number * multiplier
