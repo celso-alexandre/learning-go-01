@@ -7,11 +7,20 @@ type transformFn = func(int) int
 func main() {
 	numbers := []int{1, 2, 3, 4, 5}
 	// transformNumbers(&numbers, doubleNumber)
-	transformNumbers(&numbers, func(number int) int { return number * 2 })
+	// transformNumbers(&numbers, func(number int) int { return number * 2 })
+	transformNumbers(&numbers, createTransformerFn(2))
 	fmt.Println(numbers)
 	// transformNumbers(&numbers, tripleNumber)
-	transformNumbers(&numbers, func(number int) int { return number * 3 })
+	// transformNumbers(&numbers, func(number int) int { return number * 3 })
+	transformNumbers(&numbers, createTransformerFn(3))
 	fmt.Println(numbers)
+}
+
+// Closure - A function that builds another one
+func createTransformerFn(multiplier int) transformFn {
+	return func(number int) int {
+		return number * multiplier
+	}
 }
 
 func transformNumbers(numbers *[]int, transformer transformFn) {
