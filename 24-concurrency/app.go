@@ -40,5 +40,5 @@ func slowGreet(phrase string, done chan bool) {
 	time.Sleep(3 * time.Second) // simulate a slow, long-taking task
 	fmt.Println("Hello!", phrase)
 	done <- true
-	// close(done) // Can be called when the channel is no longer needed
+	// close(done) // Can be called when the channel is no longer needed (on last operation on the channel)
 }
