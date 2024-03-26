@@ -6,6 +6,9 @@ func main() {
 	println(sum(1, 2, 3, 4))    // 10
 	println(sum(1, 2, 3, 4, 5)) // 15
 	println(sum())              // 0
+
+	numbers := []int{1, 2}
+	println(sum(numbers...)) // 3
 }
 
 func sum(numbers ...int) int {
